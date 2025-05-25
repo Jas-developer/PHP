@@ -25,13 +25,32 @@
   
   if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+    //GRAB DATA
     $num01 = filter_input(INPUT_POST,"num01",  FILTER_SANITIZE_NUMBER_FLOAT);
     $num02 = filter_input(INPUT_POST,"num02", FILTER_SANITIZE_NUMBER_FLOAT,);
 
-  }else{
+    $operator = htmlspecialchars($_POST["operator"]);
+    
 
-  }
+    //ERROR HANDLER
+   
+    $errors = false;
+
+    if(empty($num01) || empty($num02)){
+      echo "<h2>Please fill in all fields</h2>";
+      $errors = true;
+    }
   
+  if(is_numeric($num01) && is_numeric($num02)){
+    //VALIDATE NUMBERS
+    if(!is_numeric($num01) || !is_numeric($num02)){
+      echo "<h2>Invalid input. Please enter valid numbers.</h2>";
+      $errors = true;
+    }
+  } else {
+    echo "<h2>Invalid input. Please enter valid numbers.</h2>";
+    $errors = true;
+  };
   ?>
 </body>
 </html>
