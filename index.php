@@ -51,6 +51,25 @@
     echo "<h2>Invalid input. Please enter valid numbers.</h2>";
     $errors = true;
   };
+
+  // calculate the numbers if no errors 
+
+  if($errors){
+    switch($operator){
+      case "add":
+        $value = $num01 + $num02;
+        break;
+      case "subract":
+        $value = $num01 - $num02;
+        break;
+      case "multiply":
+        $value = $num01 * $num02;
+        break;
+      case "divide":
+        $value = $num01 / $num02;
+        break;
+    }
+  }
   ?>
 </body>
 </html>
