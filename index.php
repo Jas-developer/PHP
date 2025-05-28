@@ -55,6 +55,7 @@
   // calculate the numbers if no errors 
 
   if($errors){
+    $value = 0;
     switch($operator){
       case "add":
         $value = $num01 + $num02;
@@ -68,8 +69,16 @@
       case "divide":
         $value = $num01 / $num02;
         break;
+      default:
+       echo "<p class='calc-error'>Something went wrong</p>";
     }
   }
+
+echo "<p class='calc-result'>$value</p>";
+
+}
+
+  
   ?>
 </body>
 </html>
